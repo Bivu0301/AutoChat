@@ -18,4 +18,17 @@ public class Values {
     public static final int[] MODIFIERS_DEFAULT = new int[]{KeyModifier.NONE.ordinal(), KeyModifier.NONE.ordinal()};
     public static final String MODIFIERS_NAME = "modifiers";
 
+    public static String AUTOCOMMAND;
+    public static final String AUTOCOMMAND_DEFAULT = "help";
+    public static final String AUTOCOMMAND_NAME = "acc";
+
+    public static Integer AUTOCOMMANDTIMER;
+    public static final Integer AUTOCOMMANDTIMER_DEFAULT = 5;
+    public static final String AUTOCOMMANDTIMER_NAME = "acct";
+
+    public static Boolean AUTOMATICISACTIVE;
+    public static final Boolean AUTOMATICISACTIVE_DEFAULT = true;
+    public static final String AUTOMATICISACTIVE_NAME = "acca";
+
+
 }

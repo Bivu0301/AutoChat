@@ -12,12 +12,10 @@ public abstract class AutoChatGuiFactory implements IModGuiFactory {
 
     @Override
     public void initialize(Minecraft minecraftInstance) {
-        System.out.println("Initialization of the gui factory..");
     }
 
     @Override
     public GuiScreen createConfigGui(GuiScreen parentScreen){
-        System.out.println("Creating config gui..");
         return new AutoChatConfigGui(parentScreen);
     }
 
