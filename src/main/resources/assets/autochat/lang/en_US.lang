@@ -1,0 +1,5 @@
+acl=Commands
+acl.tooltip=List of commands. Generates a keybind for each one.
+ac.tooltip=Don't include the / in front of the command.
+key.ac.category=Command Keybindings
+key.ac=Command Key: /%s
