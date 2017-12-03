@@ -1,6 +1,5 @@
 package org.quantcero.autochat;
 
-import net.minecraft.init.Blocks;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import org.apache.logging.log4j.LogManager;
@@ -21,7 +20,6 @@ import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLLoadCompleteEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 
-
 @Mod(modid = Constants.MODID,
         name = Constants.NAME,
         version = Constants.VERSION,
@@ -41,13 +39,19 @@ public class AutoChat {
     public static Logger logger;
 
     public static void syncConfig(){
+        System.out.println("Starting synchronisation..");
         Values.COMMANDS = COMMANDS.getStringList();
         Values.BINDINGSTORAGE = BINDINGS.getIntList();
         Values.MODIFIERS = MODIFIERS.getIntList();
-        if(config.hasChanged())
+        if(config.hasChanged()) {
             config.save();
-        if(keyHandler != null)
+            System.out.println("Saving config..");
+        }
+
+        if(keyHandler != null) {
             keyHandler.reload();
+            System.out.println("Reloading keyhandler..");
+        }
     }
 
 
@@ -57,6 +61,7 @@ public class AutoChat {
 
         config = new Configuration(event.getSuggestedConfigurationFile());
         config.load();
+        System.out.println("Loaded config..");
         COMMANDS = config.get(Configuration.CATEGORY_GENERAL, Values.COMMANDS_NAME, Values.COMMANDS_DEFAULT, I18n.format(Values.COMMANDS_NAME+".tooltip"));
         BINDINGS = config.get("hidden", Values.BINDINGSTORAGE_NAME, Values.BINDINGSTORAGE_DEFAULT);
         MODIFIERS = config.get("hidden", Values.MODIFIERS_NAME, Values.MODIFIERS_DEFAULT);
@@ -70,6 +75,7 @@ public class AutoChat {
 
         keyHandler = new KeyHandler();
         MinecraftForge.EVENT_BUS.register(new ClientEvents());
+        System.out.println("Registered new click event");
         MinecraftForge.EVENT_BUS.register(keyHandler);
         System.out.println("Registered "+ keyHandler);
 

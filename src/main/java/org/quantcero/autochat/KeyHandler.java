@@ -33,6 +33,7 @@ public class KeyHandler {
 
         keys = new KeyBinding[Values.COMMANDS.length];
         keyTimer = new byte[keys.length];
+        System.out.println(Values.COMMANDS);
         for (int i = 0; i < Values.COMMANDS.length; ++i) {
 
             while (BINDINGSTORAGE.length < Values.COMMANDS.length) {
@@ -47,6 +48,7 @@ public class KeyHandler {
             keys[i].setKeyModifierAndCode(KeyModifier.values()[MODIFIERS[i]], BINDINGSTORAGE[i]);
 
             ClientRegistry.registerKeyBinding(keys[i]);
+            System.out.println("Registered key " + keys[i]);
 
         }
 
@@ -58,6 +60,7 @@ public class KeyHandler {
     @SideOnly(Side.CLIENT)
     @SubscribeEvent
     public void onKeyInput(InputEvent.KeyInputEvent event) {
+
 
         for(int i=0; i < Values.COMMANDS.length;++i) {
 

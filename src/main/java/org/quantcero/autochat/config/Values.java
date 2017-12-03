@@ -7,7 +7,7 @@ import org.lwjgl.input.Keyboard;
 public class Values {
 
     public static String[] COMMANDS;
-    public static final String[] COMMANDS_DEFAULT = new String[]{"help"};
+    public static final String[] COMMANDS_DEFAULT = new String[]{"help", "gamemode 0", "gamemode 1"};
     public static final String COMMANDS_NAME = "acl";
 
     public static int[] BINDINGSTORAGE;
